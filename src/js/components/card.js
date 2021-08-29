@@ -11,7 +11,7 @@ export class Card {
     duration = 3600;
     title = '';
 
-    constructor({ image = '', type = '', title = '', duration = 3600}) {
+    constructor({ image = '', type = '', title = '', duration = 0}) {
       this.image = image;
       this.type = type;
       this.duration = duration;

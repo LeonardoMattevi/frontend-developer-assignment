@@ -4,6 +4,7 @@ import {
 import { Card } from './card.js';
 import Utils from '../utils.js';
 
+export const CAROUSEL_CHUNK_ITEMS = 6;
 export class Carousel {
     cardList = [];
     container = null; // HTML element ref
@@ -118,7 +119,7 @@ export class Carousel {
 
       let showMoreCard = null;
 
-      // get from array special card "show more cards..." for put it in the end
+      // get from array special card element (show more cards...) ant for put it in the end
       if (this.cardList.length > 0) {
         showMoreCard = this.cardList.pop();
       } else {
@@ -129,11 +130,13 @@ export class Carousel {
 
       let newCards = [];
 
+      // flat chunks
       for (const chunk of newCardsChunks) {
         newCards = [...newCards, ...chunk];
       }
 
       this.isLoading = false;
+      // set new cards
       this.cardList = [...this.cardList, ...newCards, showMoreCard];
       for (let i = 0; i < this.cardList.length; i++) {
         const card = this.cardList[i].ref;
@@ -157,6 +160,7 @@ export class Carousel {
     }
     goLeft() {
       if (this.cardList.length === 0) return;
+      // rigth limit
       const diffCardsSpace = (this.cardList.length - parseInt(document.body.offsetWidth / (this.cardList[0].ref.offsetWidth + CAROUSEL_ITEM_SPACE), 10)) - 1;
 
       if (this.indexPosition <= -diffCardsSpace) {
