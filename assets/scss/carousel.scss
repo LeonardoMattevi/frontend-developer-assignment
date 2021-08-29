@@ -1,0 +1,128 @@
+@import "./vars";
+
+.leo-carousel {
+    margin-bottom: 24px;
+    user-select: none; 
+}
+.leo-carousel-cart {
+    height: calc(100vh / 3);
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+.leo-carousel-item {
+    position: absolute;
+    height: 95%;
+    min-width: 300px;
+    width: 20%;
+    left:0;
+    top:0;    
+    box-shadow: 0px 2px 4px $border-color;
+    background-color: $color-white;
+    user-select: none; 
+}
+.leo-carousel-item.animated {
+    transition: left ease-in-out 600ms;
+}
+.leo-carousel-item.multicard::after {
+    content: ' ';
+    display: block;
+    position: absolute;
+    width: 98%;
+    bottom: -5px;
+    height: 50%;
+    background-color: $color-white;    
+    box-shadow: 0px 2px 4px $border-color;
+    z-index: -1;
+    left:1%;
+}
+.leo-carousel-item.multicard::before {
+    content: ' ';
+    display: block;
+    position: absolute;
+    width: 96%;
+    left:2%;
+    bottom: -10px;
+    height: 50%;
+    background-color: $color-white;    
+    box-shadow: 0px 2px 4px $border-color;
+    z-index: -1;
+}
+.leo-carousel-img-box {
+    height: 200px;
+    width: 100%;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.leo-carousel-labels-box {
+    height: 0;
+    position: relative;
+}
+.leo-carousel-labels-box .left-label {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    padding: 5px 8px;
+    background-color: rgba(0,0,0,0.4);
+    color: #fff;
+    text-transform: uppercase;
+}
+.leo-carousel-labels-box .right-label {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    padding: 5px 8px;
+    background-color: rgba(0,0,0,0.4);
+    color: #fff;
+}
+.carret-btn {
+    position: absolute;
+    left: -1000px;
+    z-index: 1111;
+    top: 0;
+    height: 100%;
+    width: 24px;
+    color: $color-white;
+    background-color: rgba(0,0,0,0.4);
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+.leo-carousel-cart:hover .carret-btn.go-right {
+    right: 0 !important;
+    left: auto;
+}
+.leo-carousel-cart:hover .carret-btn.go-left {
+    left: 0 !important;
+}
+.card-show-more {
+    background-color: $color-gray-ctrl;
+    cursor: pointer;
+    font-size: 40px;
+    line-height: 40px;
+    color:$color-white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.badge {
+    display: inline-block;
+    padding: 12px 18px;
+}
+
+.badge-primary {
+    background-color: $color-primary-bg;
+    border-radius: 8%;
+    color: $color-white;
+}
+h2.leo-carousel-title {
+    margin-bottom: 0.4rem;
+    cursor: pointer;
+}
+h2.leo-carousel-title > span {
+    vertical-align: middle;
+}
+.hidebox {
+    display: none !important;
+}

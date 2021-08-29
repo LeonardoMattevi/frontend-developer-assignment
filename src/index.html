@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frontend developer assignment</title>
+    <link href="https://fonts.googleapis.com/css?family=Material+Icons" rel="stylesheet">
+    <link href="./public/css/style.css" rel="stylesheet">
+    <link href="./public/css/carousel.css" rel="stylesheet">
+</head>
+<body>
+    <main><br>
+        <h1>Carousel demo page</h1>
+        <div id="carousel1"></div>
+        <div id="carousel2"></div>
+
+        <script type="module">
+            import { Carousel, Card, Utils, Types } from "./js/components/carousel.js";
+
+            (async function() {
+                const oprionCarousel1 = {
+                    container: 'carousel1',
+                    title: 'Ellentesque posuere iaculis justo',
+                    subtitle: 'Aliquam porta, velit nec tristique viverra, ex mi vulputate sapien',                    
+                    icon: Types.factory.getRandomIconType(),
+                    fetchCard: fetchCards
+                }
+                const carusel1 = new Carousel(oprionCarousel1);
+
+                const oprionCarousel2 = {
+                    container: 'carousel2',
+                    title: 'Posuere Justo Iaculis',
+                    subtitle: 'Velit nec tristique viverra, ex mi vulputate sapien',                    
+                    icon: Types.factory.getRandomIconType(),
+                    fetchCard: fetchCards
+                }
+                const carusel2 = new Carousel(oprionCarousel2);
+                
+                const oprionCarousel3 = {
+                    container: 'carousel3',
+                    title: 'Cras fermentum lacus vel luctus porttitor.',
+                    subtitle: 'Nulla auctor fringilla turpis feugiat mattis. Ut vehicula venenatis nisl, ut tincidunt erat convallis ac. Sed in nisl orci. Nunc interdum leo sodales quam tempor porta.',                    
+                    icon: Types.factory.getRandomIconType(),
+                    fetchCard: fetchCards
+                }
+                const carusel3 = new Carousel(oprionCarousel3);
+
+                const oprionCarousel4 = {
+                    container: 'carousel4',
+                    title: 'Aliquam sit amet felis et nibh lacinia condimentu',
+                    subtitle: 'Curabitur et dignissim neque. Duis sit amet faucibus ex. Nulla auctor fringilla turpis feugiat mattis.',                    
+                    icon: Types.factory.getRandomIconType(),
+                    fetchCard: fetchCards
+                }
+                const carusel4 = new Carousel(oprionCarousel4);
+            })();
+
+            const CAROUSEL_CHUNK_ITEMS = 6;
+            async function fetchCards() {
+                // await for random time 500-1500
+                await Utils.wait(Utils.getRandomInt(500, 1000));
+
+                const chunkNumber = Utils.getRandomInt(1, 3);
+                const chunksCardList = [];
+                for (let i= 0; i < chunkNumber; i++) {
+                    const cardList = [];
+                    for (let j= 0; j < CAROUSEL_CHUNK_ITEMS; j++) {
+                        cardList.push(Card.factory.getRandomCard());
+                    }
+                    chunksCardList.push(cardList)
+                }
+                
+                return chunksCardList;
+            }
+        </script>
+        
+        <div id="carousel3"></div>
+        <div id="carousel4"></div>
+    </main>
+</body>
+</html>

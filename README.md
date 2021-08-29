@@ -1,2 +1,2 @@
-# frontend-developer-assignment
-Create a reusable carousel component
+# Reusable Carousel Component
+

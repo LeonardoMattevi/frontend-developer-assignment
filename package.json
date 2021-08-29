@@ -1,0 +1,42 @@
+{
+  "name": "frontend-developer-assignment",
+  "version": "1.0.0",
+  "description": "A reusable carousel component",
+  "main": "src/js/components/carousel.js",
+  "scripts": {
+    "dev": "lite-server",
+    "test": "jest",
+    "build": "webpack",
+    "scss": "node-sass --w assets/scss -o src/public/css --recursive"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.[t|j]sx?$": "babel-jest"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LeonardoMattevi/frontend-developer-assignment.git"
+  },
+  "author": "Leonardo Mattevi",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/LeonardoMattevi/frontend-developer-assignment/issues"
+  },
+  "homepage": "https://github.com/LeonardoMattevi/frontend-developer-assignment#readme",
+  "devDependencies": {
+    "@babel/preset-env": "^7.15.0",
+    "@babel/preset-typescript": "^7.15.0",
+    "babel-core": "^6.26.3",
+    "babel-jest": "^24.9.0",
+    "clean-webpack-plugin": "^3.0.0",
+    "copy-webpack-plugin": "^6.0.3",
+    "eslint": "^7.5.0",
+    "jest": "^24.9.0",
+    "lite-server": "^2.6.1",
+    "node-sass": "^6.0.1",
+    "script-loader": "^0.7.2",
+    "webpack": "^4.44.0",
+    "webpack-cli": "^3.3.12"
+  }
+}
