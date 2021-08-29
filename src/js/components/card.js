@@ -24,6 +24,9 @@ export class Card {
       if ([Types.cardType.learning_plan, Types.cardType.playlist].includes(this.type)) {
         this.ref.classList.add('multicard');
       }
+      if (this.type === 'placeholder') {
+        this.ref.classList.add('placeholder');
+      }
       this.ref.innerHTML = `
                 <div class="${ITEM_IMG_BOX_CLASS}" style="background-image:url('${this.image}');"></div>
                 <div class="${ITEM_LABEL_BOX_CLASS}">            

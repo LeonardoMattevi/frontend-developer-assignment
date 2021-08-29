@@ -126,7 +126,10 @@ export class Carousel {
         showMoreCard = { ref: this.cardShowMore };
       }
       this.isLoading = true;
+      this.getPlaceholderCrads();
+      this.positioningCards(true);
       const newCardsChunks = await this.fetchCardsFN();
+      this.removePlaceholderCrads();
 
       let newCards = [];
 
@@ -177,6 +180,21 @@ export class Carousel {
     showArrows() {
       this.goRightArrow.classList.remove('hidebox');
       this.goLeftArrow.classList.remove('hidebox');
+    }
+    getPlaceholderCrads() {
+      for (let i = 0; i < 6; i++) {
+        const card = new Card({
+          type: 'placeholder',
+        });
+        this.cardList.push(card);
+        this.carretBox.append(card.ref);
+      }
+    }
+    removePlaceholderCrads() {
+      this.cardList = this.cardList.filter(c => c.type !== 'placeholder');
+      for(const elem of this.carretBox.querySelectorAll('.placeholder')) {
+        elem.parentNode.removeChild(elem);
+      }
     }
     positioningCards(withoutAnimation) {
       for (let i = 0; i < this.cardList.length; i++) {

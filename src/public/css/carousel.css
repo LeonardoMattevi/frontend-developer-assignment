@@ -53,6 +53,16 @@
   background-repeat: no-repeat;
   background-size: cover; }
 
+.placeholder .leo-carousel-img-box {
+  background-color: #ccc; }
+
+.placeholder .leo-carousel-labels-box {
+  display: none !important; }
+
+.placeholder .text-primary {
+  background-color: #ccc;
+  padding-top: 18px; }
+
 .leo-carousel-labels-box {
   height: 0;
   position: relative; }
